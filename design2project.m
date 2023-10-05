@@ -28,6 +28,14 @@ pc= ((fr^2)+(fc^2))^(1/2);
 %deflection due to spindle bending%
 Dbending = ((pc)/(6*E*I))*(((-(a+b)/L)*(x^3))+(1+((a+b)/L))*((x-L)^3)+((a+b)*L*x))
 I  = (pi*((Dext)^4) - ((Dint^4)))/64;
-
+D_ext=linspace(0,52e-3,1000);
+L=linspace(100e-3,250e-3,1000);
+D_int=D_ext*(0.4);
+I=((pi)*((D_ext)^4-(D_int)^4))/64;
+I_graph=plot(L,I,Dbending);
+xlabel('Length between bearings (m)');
+ylabel('Moment of Inertia');
+zlabel('Deflection due to spindle bending');
+disp(I_graph)
 
 
